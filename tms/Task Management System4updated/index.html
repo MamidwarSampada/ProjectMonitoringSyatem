@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="header">
+        <h1>Task Management System</h1>
+    </div>
+    <div class="upper-btn-box">
+        <div class="left-box">
+            <button id="add-btn"><i class="fa fa-plus"></i>Add Task</button>
+        </div>
+        <div class="right-box">
+            <i class="fa fa-search"></i>
+            <input type="text" id="search" placeholder="Enter here">
+            <button style="background-color: rgb(54, 123, 202);"
+                onclick="searchinput(),subsearchinput()">Search</button>
+        </div>
+    </div>
+    <h2 class="tablename">Task Details</h2>
+    <div class="table-box">
+        <table id="fulltable">
+            <tr>
+                <th>Task Id</th>
+                <th>Task Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+            <tbody id="table">
+
+            </tbody>
+        </table>
+    </div>
+    <div class="modal">
+        <i class="fa fa-times-circle close-icon"></i>
+        <div class="right-modal">
+            <form id="idform" onsubmit="onformsubmit()">
+                <div class="input-box">
+                    <label for="id">Task ID</label>
+                    <input type="number" id="taskid" placeholder="Please enter numeric value only" required>
+
+                </div>
+                <p id="errorDisplay" style="color: red;"></p>
+                <div class="input-box">
+                    <label for="Task Name">Task Name</label>
+                    <input type="text" id="TaskName" placeholder="Enter Task Name" required>
+                </div>
+                <div class="input-box">
+                    <label for="StartDate">Start Date</label>
+                    <input type="date" id="StartDate" required>
+                    <!-- <input type="datetime-local" id="StartDate" required> -->
+
+                </div>
+                <div class="input-box">
+                    <label for="EndDate">End Date</label>
+                    <input type="date" id="EndDate" required>
+                </div>
+                <div class="input-box">
+                    <label for="Status">Status</label>
+                    <select name="Status" id="Status" required>
+                        <option value="select">-----------------------</option>
+                        <option value="In-Progress">In-Progress</option>
+                        <option value="Completed">Completed</option>
+                        <option value="DuePassed">DuePassed</option>
+                        <option value="Canceled">Canceled</option>
+                    </select>
+                </div>
+                <div class="submit"><button>Submit</button></div>
+        </div>
+        </form>
+    </div>
+
+    <!-- subtask form modal and table ******************************************************************************-->
+    <div class="subtable-box">
+        <table id="subfulltable">
+            <tr>
+                <th>SubTask Id</th>
+                <th>SubTask Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>SubTaskStatus</th>
+                <th>Actions</th>
+            </tr>
+            <tbody id="table">
+
+            </tbody>
+        </table>
+    </div>
+    <div class="submodal">
+        <i class="fa fa-times-circle subclose-icon"></i>
+        <div class="subright-modal">
+            <form id="subidform" autocomplete="off" onsubmit="onsubformsubmit()">
+                <div class="subinput-box">
+                    <label for="subid">SubTask ID</label>
+                    <input type="number" id="subtaskid" placeholder="Please enter numeric value only" required>
+
+                </div>
+                <p id="suberrorDisplay" style="color: red;"></p>
+                <div class="subinput-box">
+                    <label for="subTask Name">SubTask Name</label>
+                    <input type="text" id="subTaskName" placeholder="Enter Task Name" required>
+                </div>
+                <div class="subinput-box">
+                    <label for="subStartDate">Start Date</label>
+                    <input type="date" id="subStartDate" required>
+                    <!-- <input type="datetime-local" id="StartDate" required> -->
+
+                </div>
+                <div class="subinput-box">
+                    <label for="subEndDate">End Date</label>
+                    <input type="date" id="subEndDate" required>
+                </div>
+                <div class="subinput-box">
+                    <label for="subStatus">SubTask Status</label>
+                    <select name="Status" id="subStatus">
+                        <option value="select">-----------------------</option>
+                        <option value="In-Progress">In-Progress</option>
+                        <option value="Completed">Completed</option>
+                        <option value="DuePassed">DuePassed</option>
+                        <option value="Canceled">Canceled</option>
+                    </select>
+                </div>
+                <div class="subsubmit"><button onclick="onsubformsubmit()">Subtask Submit</button></div>
+        </div>
+        </form>
+    </div>
+    <!-- subtask form modal ******************************************************************************-->
+    <script src="index.js"></script>
+    <script src="validation.js"></script>
+</body>
+
+</html>

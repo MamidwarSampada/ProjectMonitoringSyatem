@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="header">
+        <h2>Task Management System</h2>
+    </div>
+    <div class="upper-btn-box">
+        <div class="left-box">
+            <button id="add-btn"><i class="fa fa-plus"></i>Add Task</button>
+        </div>
+        <div class="right-box">
+            <i class="fa fa-search"></i>
+            <input type="text" id="empId" placeholder="Enter here">
+            <button style="background-color: rgb(248, 15, 15);">Search</button>
+        </div>
+    </div>
+
+    <div class="table-box">
+        <table id="fulltable">
+            <tr>
+                <th>Task Id</th>
+                <th>Task Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+            <tbody id="table">
+            <!-- <tr>
+                <td>hello word</td>
+                <td>hello word</td>
+                <td>hello word</td>
+                <td>hello word</td>
+                <td>hello word</td>
+                <td><button style="background-color: rgb(221, 221, 26);color:black">Edit</button><button>Delete</button></td>
+            </tr> -->
+            </tbody>
+        </table>
+    </div>
+    <div class="modal">
+        <i class="fa fa-times-circle close-icon"></i>
+       <div class="right-modal">
+        <form autocomplete="off" onsubmit="onformsubmit()">
+        <div class="input-box">
+            <label for="id">Task ID</label>
+            <input type="text" id="taskid">
+        </div>
+        <div class="input-box">
+            <label for="Task Name">Task Name</label>
+            <input type="text" id="TaskName">
+        </div>
+        <div class="input-box">
+            <label for="StartDate">Start Date</label>
+            <input type="date" id="StartDate">
+        </div>
+        <div class="input-box">
+            <label for="EndDate">End Date</label>
+            <input type="date" id="EndDate">
+        </div>
+        <div class="input-box">
+            <label for="Status">Status</label>
+            <select name="Status" id="Status">
+                <option value="select">-----------------------</option>
+                <option value="In-Progress">In-Progress</option>
+                <option value="Completed">Completed</option>
+                <option value="DuePassed">DuePassed</option>
+                <option value="Canceled">Canceled</option>
+              </select>
+            <!-- <input type="text" id="Status"> -->
+        </div>
+        <div class="submit" onclick><button>Submit</button></div>
+       </div> 
+    </form>
+    </div>
+    <script src="index.js"></script>
+    <script src="validation.js"></script>
+</body>
+</html>
